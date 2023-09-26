@@ -1,0 +1,37 @@
+.todo-body {
+  /* background-blend-mode: multiply; */
+  background: linear-gradient(225deg, #1e0303, #ed4b0afd, #1e0303);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transparent-card {
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 400px;
+}
+
+.todo-input {
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+}
+
+.todo-btn {
+  background-color: rgba(232, 31, 17, 0.922);
+  color: #0a0500;
+  border: transparent;
+  outline: none;
+  font-weight: 500;
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.added-item {
+  display: flex;
+  direction: row;
+  color: black;
+  background-color: orange;
+}

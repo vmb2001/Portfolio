@@ -1,0 +1,13 @@
+.carousel-container {
+  position: relative;
+  padding-top: 90px;
+}
+.carousel-img {
+  height: 750px;
+  width: 100%;
+}
+.prof_pic {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
