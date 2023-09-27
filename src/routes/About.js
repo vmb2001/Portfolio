@@ -1,7 +1,12 @@
 import React from "react";
+import Mycarousel from "../components/Mycarousel";
 
 const About = () => {
-  return <div>About</div>;
+  return (
+    <div>
+      <Mycarousel />
+    </div>
+  );
 };
 
 export default About;

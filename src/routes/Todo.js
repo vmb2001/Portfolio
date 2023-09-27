@@ -1,26 +1,38 @@
 import React, { useState } from "react";
 import "./Todo.css";
+import * as Fa6Icons from "react-icons/fa6";
+import * as FaIcons from "react-icons/fa";
+
 const Todo = () => {
   const [todo, setTodo] = useState([]);
   const [newTodo, setNewtodo] = useState([]);
+  let id=0;
 
   const handleChange = (e) => {
     const new_val = e.target.value;
-    setNewtodo([...todo, { task: new_val }]);
-    // e.preventDefault();
+    setNewtodo([...todo, { id: id, task: new_val }]);
   };
 
-  const addTodo = (e) => {
-    // let update = [...todo];
-    // update = [...todo, newTodo];
+  const addTodo = () => {
+    const new_id = id + 1;
+    
     setTodo(newTodo);
     console.log(newTodo);
     console.log(todo);
-    // e.preventDefault();
   };
+
+  const remove = (id) => {
+    console.log("click");
+
+    const updated_todo = todo.filter((item) => item.id !== id);
+    console.log(updated_todo);
+
+    setTodo(updated_todo);
+    // console.log(item);
+  };
+
   return (
     <div className="todo-body">
-      <img src="" />
       <div className="card transparent-card">
         <h5 className="card-header">Todo-List</h5>
         <div className="card-body">
@@ -36,18 +48,29 @@ const Todo = () => {
               <button
                 type="button"
                 className="todo-btn"
-                onClick={(e) => addTodo(e)}
+                onClick={() => addTodo()}
               >
                 Add
               </button>
             </form>
           </div>
-          {newTodo.map((item) => (
-            <p className="added-item">{item.task}</p>
+          {todo.map((item, index) => (
+            <div className="added-item" key={item.id}>
+              <div className="task">
+                {item.task}
+                {item.id}
+              </div>
+              <div className="icons">
+                <FaIcons.FaEdit className="edit-icon" />
+                <Fa6Icons.FaTrashCan
+                  className="delete-icon"
+                  onClick={() => remove(item.id)}
+                />
+              </div>
+            </div>
           ))}
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

@@ -1,37 +1,106 @@
+/* Todo.css */
 .todo-body {
-  /* background-blend-mode: multiply; */
-  background: linear-gradient(225deg, #1e0303, #ed4b0afd, #1e0303);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .transparent-card {
-  background-color: rgba(255, 255, 255, 0.4);
-  height: 400px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.card-header {
+  background-color: #ed5f06;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 28px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .todo-input {
-  background-color: rgb(255, 255, 255, 0.5);
+  width: 100%;
+  padding: 15px;
   border: none;
+  border-bottom: 2px solid #ed5f06;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* .todo-input:focus {
+  outline: none;
+} */
+.todo-input::placeholder {
+  color: #aaa;
 }
 
 .todo-btn {
-  background-color: rgba(232, 31, 17, 0.922);
-  color: #0a0500;
-  border: transparent;
-  outline: none;
-  font-weight: 500;
+  background-color: #ff8e48;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s;
 }
 
-.todo-input:focus {
-  outline: none;
+.todo-btn:hover {
+  background-color: #f86306;
 }
 
 .added-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  direction: row;
-  color: black;
-  background-color: orange;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+}
+.task {
+  width: 240px;
+}
+.edit-icon:hover {
+  color: #05b021;
+}
+.delete-icon:hover {
+  color: #d10202;
 }

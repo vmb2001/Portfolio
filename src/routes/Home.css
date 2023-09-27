@@ -1,0 +1,32 @@
+.body-container {
+  margin-top: 90px;
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.f-container {
+  background-color: #e25a06;
+  flex: 1;
+  height: 100vh;
+}
+.s-container {
+  background-color: rgb(255, 255, 255);
+  flex: 3;
+  height: 100vh;
+}
+.prof_pic {
+  position: absolute;
+  width: 19%;
+  height: 40%;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border: solid 5px rgb(255, 255, 255);
+  border-style: double;
+  /* border-bottom-color: #000000;
+  border-top: #000000;
+  border-left-color: #000000; */
+}

@@ -7,27 +7,30 @@ const Navbar = () => {
     <>
       <div className="nav-container">
         <div className="header">
+          <Hamburger />
           <Link to="/">
             <h1>Portfolio</h1>
           </Link>
         </div>
-        <ul className="nav-list">
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
+        <div className="nav-content">
+          <ul className="nav-list">
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
 
-          <li>
-            <Link to="/blog">Blogs</Link>
-          </li>
+            <li>
+              <Link to="/blog">Blogs</Link>
+            </li>
 
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
 
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
