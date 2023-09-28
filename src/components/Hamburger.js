@@ -40,6 +40,7 @@ function Ham({ name, ...props }) {
     fontSize: "1.9rem",
     marginRight: "3rem",
     marginBottom: "5px",
+    cursor: "pointer",
   };
 
   const itemStyles = {

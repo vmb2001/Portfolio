@@ -1,4 +1,3 @@
-/* Todo.css */
 .todo-body {
   display: flex;
   justify-content: center;
@@ -12,8 +11,7 @@
   border: none;
   box-shadow: none;
 }
-
-.card-header {
+.transparent-card > h5 {
   background-color: #ed5f06;
   color: #fff;
   text-align: center;
@@ -35,7 +33,7 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #333333;
 }
 
 .todo-form {
@@ -54,27 +52,37 @@
   font-size: 18px;
   color: #333;
 }
-
+.task:hover {
+  cursor: pointer;
+  color: rgb(65, 6, 104);
+  /* text-decoration: line-through; */
+}
+.completed {
+  text-decoration: line-through;
+}
 /* .todo-input:focus {
   outline: none;
 } */
-.todo-input::placeholder {
+/* .todo-input::placeholder {
   color: #aaa;
-}
+} */
 
 .todo-btn {
-  background-color: #ff8e48;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 30px;
+  background-color: #f86306;
+  color: white;
+  border: solid 1.5px #ff8e48;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-weight: 400;
   font-size: 20px;
-  transition: background-color 0.3s;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .todo-btn:hover {
-  background-color: #f86306;
+  /* color: #000000; */
+  background-color: #f1841e;
 }
 
 .added-item {

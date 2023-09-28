@@ -10,3 +10,4 @@ const About = () => {
 };
 
 export default About;
+// /"homepage": "https://vmb2001.github.io/Portfolio",

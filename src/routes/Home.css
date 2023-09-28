@@ -1,5 +1,5 @@
 .body-container {
-  margin-top: 90px;
+  /* margin-top: 90px; */
   display: flex;
   direction: column;
   justify-content: space-between;
@@ -20,7 +20,7 @@
   position: absolute;
   width: 19%;
   height: 40%;
-  top: 30%;
+  top: 37%;
   left: 20%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -29,4 +29,21 @@
   /* border-bottom-color: #000000;
   border-top: #000000;
   border-left-color: #000000; */
+}
+
+.prof_name {
+  position: absolute;
+  color: rgb(70, 0, 0);
+  top: 61%;
+  left: 20.5%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
 }
