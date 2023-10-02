@@ -1,9 +1,19 @@
+.bg-image {
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+.todo-container {
+  background-color: rgb(12, 10, 10, 0.5);
+}
 .todo-body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
 }
 
 .transparent-card {
@@ -44,11 +54,12 @@
 }
 
 .todo-input {
-  width: 100%;
+  width: 90%;
   padding: 15px;
   border: none;
   border-bottom: 2px solid #ed5f06;
   margin-bottom: 20px;
+  margin-top: 20px;
   font-size: 18px;
   color: #333;
 }
@@ -68,11 +79,13 @@
 } */
 
 .todo-btn {
+  width: 6rem;
+  margin-bottom: 20px;
   background-color: #f86306;
   color: white;
   border: solid 1.5px #ff8e48;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 8px 20px;
   cursor: pointer;
   font-weight: 400;
   font-size: 20px;
@@ -81,14 +94,33 @@
 }
 
 .todo-btn:hover {
-  /* color: #000000; */
-  background-color: #f1841e;
+  background-color: #ee480c;
+}
+
+.edit-btn {
+  width: 5rem;
+  margin-top: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #f86306;
+  color: white;
+  border: solid 1.5px #ff8e48;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 20px;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn:hover {
+  background-color: #ee480c;
 }
 
 .added-item {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 15px;
   margin-top: 10px;
   font-size: 18px;
@@ -96,6 +128,21 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+}
+.edit-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  /* border-radius: 5px; */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  width: 15rem;
 }
 .icons {
   display: flex;
@@ -111,4 +158,22 @@
 }
 .delete-icon:hover {
   color: #d10202;
+}
+.pack {
+  display: flex;
+  direction: row;
+}
+
+.todo-btn.logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #000000;
+  width: 9rem;
+  font-weight: 500;
+}
+
+.todo-btn.logout:hover {
+  color: white;
+  transition: 0.5s;
 }

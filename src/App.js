@@ -4,6 +4,7 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Todo from "./routes/Todo";
 import Blog from "./routes/Blog";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/voice" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/todo" element={<Todo />} />

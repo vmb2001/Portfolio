@@ -1,22 +1,25 @@
 .carousel-container {
   position: relative;
-  padding-top: 90px;
+  background-color: black;
+  /* padding-top: 90px; */
 }
 .carousel-img {
-  height: 750px;
+  height: 100vh;
   width: 100%;
 }
-.prof_pic {
-  height: 20rem;
-  width: 20rem;
-  position: fixed;
-  z-index: 200;
-  top: 200px;
-  left: 200px;
-  border: solid orange;
-  border-style: double;
-}
 
+.car-body {
+  background-color: black;
+  height: 100vh;
+}
+.heading {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 1.5rem;
+  position: absolute;
+  top: 6%;
+  /* text-shadow: 0px, 0px, 10px rgb(223, 23, 23); */
+}
 /* .feed {
   width: 100px;
 } */

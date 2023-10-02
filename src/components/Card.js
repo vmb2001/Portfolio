@@ -1,27 +1,32 @@
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import home from "../images/home.jpg";
-function Cardd() {
-  return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card>
-            <Card.Img variant="top" src={home} />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
-  );
-}
+import React from "react";
 
-export default Cardd;
+const Card = () => {
+  return (
+    <div className="content-b">
+      <div className="media">
+        <img className="mr-3" src="..." alt="Generic placeholder image" />
+        <div className="media-body">
+          <h5 className="mt-0 ">Media heading</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+          scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+          vulputate fringilla. Donec lacinia congue felis in faucibus.
+          <div className="media mt-3">
+            <a className="pr-3" href="#">
+              <img src="..." alt="Generic placeholder image" />
+            </a>
+            <div className="media-body">
+              <h5 className="mt-0">Media heading</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+              scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+              vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

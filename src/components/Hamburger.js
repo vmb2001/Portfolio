@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as Fa6Icons from "react-icons/fa6";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const props = {
   name: "Enable both scrolling & backdrop",
@@ -11,6 +12,8 @@ const props = {
 };
 
 function Ham({ name, ...props }) {
+  const { loginWithRedirect } = useAuth0();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -36,9 +39,10 @@ function Ham({ name, ...props }) {
   };
 
   const menuIconStyles = {
+    opacity: ".9",
     color: "white",
-    fontSize: "1.9rem",
-    marginRight: "3rem",
+    fontSize: "2.2rem",
+    marginRight: "2rem",
     marginBottom: "5px",
     cursor: "pointer",
   };
@@ -51,8 +55,19 @@ function Ham({ name, ...props }) {
     margin: "1rem",
     marginBottom: "3rem",
     marginLeft: "3rem",
+    cursor: "pointer",
   };
 
+  // const handleLogin = async () => {
+  //   console.log("INSIDE");
+  //   const response = await loginWithRedirect();
+  // console.log("isAuthenticated"+isAuthenticated)
+  // if (isAuthenticated)
+  // {
+  //   alert("inside");
+  //   navigate("/todo");
+  // }
+  // };
   return (
     <>
       <FaIcons.FaBars onClick={toggleShow} style={menuIconStyles} />
@@ -70,17 +85,17 @@ function Ham({ name, ...props }) {
         </Offcanvas.Header>
 
         <Offcanvas.Body>
-          <Link to="/todo" style={linkStyles}>
+          <div style={linkStyles} onClick={() => loginWithRedirect()}>
             <h5 style={itemStyles}>
               <Fa6Icons.FaNoteSticky style={iconStyles} />
-              Todo Notes
+              <a>Todo Notes</a>
             </h5>
-          </Link>
+          </div>
 
-          <Link to="/blogs" style={linkStyles}>
+          <Link to="/voice" style={linkStyles}>
             <h5 style={itemStyles}>
               <Fa6Icons.FaPencil style={iconStyles} />
-              Blogs
+              Voice Assistant
             </h5>
           </Link>
         </Offcanvas.Body>
