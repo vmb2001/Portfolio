@@ -71,12 +71,6 @@
 .completed {
   text-decoration: line-through;
 }
-/* .todo-input:focus {
-  outline: none;
-} */
-/* .todo-input::placeholder {
-  color: #aaa;
-} */
 
 .todo-btn {
   width: 6rem;
@@ -166,8 +160,8 @@
 
 .todo-btn.logout {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   color: #000000;
   width: 9rem;
   font-weight: 500;
@@ -176,4 +170,10 @@
 .todo-btn.logout:hover {
   color: white;
   transition: 0.5s;
+}
+
+.welcome {
+  color: white;
+  position: absolute;
+  top: 1rem;
 }

@@ -7,10 +7,11 @@ import about from "../images/about.jpg";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Todo = () => {
+  // const axios = require("axios");
   const { v4: uuidv4 } = require("uuid");
   const [todo, setTodo] = useState([]);
   const [value, setValue] = useState("");
-  const { logout } = useAuth0();
+  const { logout, user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     try {
@@ -51,8 +52,6 @@ const Todo = () => {
       console.log(`error${err}`);
     }
   };
-  //   setTodo([...todo, { id: -1, task: value, status: "not completed" }]);
-  // else setTodo([...todo, { task: value, status: "not completed" }]);
 
   const remove = (id) => {
     const deleted_todo = todo.filter((item) => item.id !== id);
@@ -127,6 +126,7 @@ const Todo = () => {
 
   return (
     <div className="todo-container">
+      {isAuthenticated && <h1 className="lead welcome">Welcome {user.name}</h1>}
       <button
         className="todo-btn  logout"
         onClick={() =>
