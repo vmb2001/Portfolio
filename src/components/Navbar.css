@@ -17,24 +17,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: solid white; */
 }
+
 .header h1 {
   font-size: 50px;
 }
-/* @media screen max-width {
-  .header{
 
-  } */
-
-/* } */
 .nav-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  /* border: solid white; */
 }
+
 .nav-list li {
   padding: 0 1rem;
 }
@@ -53,7 +48,6 @@
 }
 
 .nav-content {
-  /* color: white; */
   width: 70rem;
   padding-top: 10px;
   display: flex;

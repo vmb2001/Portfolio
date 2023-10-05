@@ -1,15 +1,12 @@
 import React from "react";
 import home from "../images/view.jpg";
-import about from "../images/mountain.jpg";
 import contact from "../images/road.jpg";
 import { Carousel } from "react-bootstrap";
-import profile_pic from "../images/profile_pic.jpg";
 import "./Mycarousel.css";
 
 const Mycarousel = () => {
   return (
     <div className="car-body">
-      {/* <img className="prof_pic" src={profile_pic}></img> */}
       <div className="carousel-container">
         <div className="heading">ABOUT ME</div>
         <Carousel fade>

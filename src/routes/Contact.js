@@ -1,5 +1,4 @@
 import React from "react";
-import Mycarousel from "../components/Mycarousel";
 import Image from "react-bootstrap/Image";
 import phone from "../images/phone.jpg";
 import "./Contact.css";
@@ -37,4 +36,3 @@ const About = () => {
 };
 
 export default About;
-// /"homepage": "https://vmb2001.github.io/Portfolio",

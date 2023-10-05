@@ -58,16 +58,6 @@ function Ham({ name, ...props }) {
     cursor: "pointer",
   };
 
-  // const handleLogin = async () => {
-  //   console.log("INSIDE");
-  //   const response = await loginWithRedirect();
-  // console.log("isAuthenticated"+isAuthenticated)
-  // if (isAuthenticated)
-  // {
-  //   alert("inside");
-  //   navigate("/todo");
-  // }
-  // };
   return (
     <>
       <FaIcons.FaBars onClick={toggleShow} style={menuIconStyles} />

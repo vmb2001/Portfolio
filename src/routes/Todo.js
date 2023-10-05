@@ -17,7 +17,6 @@ const Todo = () => {
     try {
       const fetch = async () => {
         const response = await axios.get("http://localhost:3001/api");
-        console.log("fetched");
         setTodo(response.data);
       };
       fetch();
@@ -87,7 +86,6 @@ const Todo = () => {
       return item;
     });
     setTodo(new_todo);
-    // console.log(todo);
   };
 
   const changeEdit = (id) => {
@@ -108,9 +106,8 @@ const Todo = () => {
       }
       return item;
     });
-    console.log("outside");
+
     try {
-      console.log("inside");
       const change = async () => {
         const response = await axios.patch(
           `http://localhost:3001/api/todos/${id}`,
