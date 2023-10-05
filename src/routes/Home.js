@@ -1,9 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Carousel, Container } from "react-bootstrap";
-import Hamburger from "../components/Hamburger";
-import Mycarousel from "../components/Mycarousel";
-import Card from "../components/Card";
 import "./Home.css";
 import profile_pic from "../images/p8.jpg";
 import home from "../images/home.jpg";

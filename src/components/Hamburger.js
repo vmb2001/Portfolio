@@ -95,7 +95,7 @@ function Ham({ name, ...props }) {
           <Link to="/voice" style={linkStyles}>
             <h5 style={itemStyles}>
               <Fa6Icons.FaPencil style={iconStyles} />
-              Voice Assistant
+              AI News Reader
             </h5>
           </Link>
         </Offcanvas.Body>

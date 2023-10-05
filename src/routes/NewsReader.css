@@ -1,0 +1,11 @@
+.news-reader {
+  background-color: black;
+}
+
+.news-head {
+  padding: 1rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(255, 132, 0);
+}
