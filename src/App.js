@@ -4,7 +4,6 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Todo from "./routes/Todo";
 import NewsReader from "./routes/NewsReader";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 

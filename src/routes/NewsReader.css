@@ -1,11 +1,15 @@
 .news-reader {
   background-color: black;
+  min-height: 100vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 1rem;
 }
 
 .news-head {
   padding: 1rem;
+  padding-bottom: 3rem;
   text-align: center;
   font-size: 3rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: rgb(255, 132, 0);
+  color: rgb(255, 81, 0);
 }

@@ -7,29 +7,28 @@ import about from "../images/about.jpg";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Todo = () => {
-  // const axios = require("axios");
-  const { v4: uuidv4 } = require("uuid");
   const [todo, setTodo] = useState([]);
   const [value, setValue] = useState("");
   const { logout, user, isAuthenticated } = useAuth0();
+  //To create unique ids
+  const { v4: uuidv4 } = require("uuid");
 
+  //Fetch data
   useEffect(() => {
-    try {
-      const fetch = async () => {
-        const response = await axios.get("http://localhost:3001/api");
-        setTodo(response.data);
-      };
-      fetch();
-    } catch (err) {
-      console.log(`error${err}`);
-    }
+    const fetch = async () => {
+      const response = await axios.get("http://localhost:3001/api");
+      setTodo(response.data);
+    };
+    fetch();
   }, []);
 
+  //Function to store value entered in input form
   const handleChange = (e) => {
     const val = e.target.value;
     setValue(val);
   };
 
+  //Function to add to list
   const addTodo = () => {
     let new_id = uuidv4();
     const addVal = {
@@ -38,47 +37,37 @@ const Todo = () => {
       completed: false,
       editing: false,
     };
-    try {
-      const add = async () => {
-        const response = await axios.post(
-          "http://localhost:3001/api/todos",
-          addVal
-        );
-      };
-      add();
-      setTodo([...todo, addVal]);
-    } catch (err) {
-      console.log(`error${err}`);
-    }
+
+    const add = async () => {
+      const response = await axios.post(
+        "http://localhost:3001/api/todos",
+        addVal
+      );
+    };
+    add();
+    setTodo([...todo, addVal]);
   };
 
+  //Function to remove from list
   const remove = (id) => {
     const deleted_todo = todo.filter((item) => item.id !== id);
-    try {
-      const del = async () => {
-        const response = await axios.delete(
-          `http://localhost:3001/api/todos/${id}`
-        );
-      };
-      setTodo(deleted_todo);
-      del();
-    } catch (err) {
-      console.log(`error${err}`);
-    }
+    const del = async () => {
+      const response = await axios.delete(
+        `http://localhost:3001/api/todos/${id}`
+      );
+    };
+    setTodo(deleted_todo);
+    del();
   };
 
+  //Function to mark task as completed or not
   const changeCompleted = (id) => {
-    try {
-      const change = async () => {
-        const response = await axios.put(
-          `http://localhost:3001/api/todos/${id}`
-        );
-      };
+    const change = async () => {
+      const response = await axios.put(`http://localhost:3001/api/todos/${id}`);
+    };
 
-      change();
-    } catch (err) {
-      console.log(`error${err}`);
-    }
+    change();
+
     const new_todo = todo.map((item) => {
       if (item.id == id) {
         item.completed = !item.completed;
@@ -88,6 +77,7 @@ const Todo = () => {
     setTodo(new_todo);
   };
 
+  //Function to set edited data
   const changeEdit = (id) => {
     const new_todo = todo.map((item) => {
       if (item.id == id) {
@@ -98,6 +88,7 @@ const Todo = () => {
     setTodo(new_todo);
   };
 
+  //Function to set if form is getting edited or not
   const edit = (id) => {
     const new_todo = todo.map((item) => {
       if (item.id == id) {
@@ -107,18 +98,14 @@ const Todo = () => {
       return item;
     });
 
-    try {
-      const change = async () => {
-        const response = await axios.patch(
-          `http://localhost:3001/api/todos/${id}`,
-          { task: value }
-        );
-      };
-      change();
-      setTodo(new_todo);
-    } catch (err) {
-      console.log(`error occured${err}`);
-    }
+    const change = async () => {
+      const response = await axios.patch(
+        `http://localhost:3001/api/todos/${id}`,
+        { task: value }
+      );
+    };
+    change();
+    setTodo(new_todo);
   };
 
   return (

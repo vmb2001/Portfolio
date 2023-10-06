@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const About = () => {
+const Contact = () => {
   return (
     <div className="contact-body">
       <div className="container ">
@@ -35,4 +35,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Contact;

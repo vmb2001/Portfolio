@@ -1,17 +1,16 @@
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as Fa6Icons from "react-icons/fa6";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const props = {
-  name: "Enable both scrolling & backdrop",
   scroll: true,
   backdrop: true,
 };
 
-function Ham({ name, ...props }) {
+function Hamburger() {
   const { loginWithRedirect } = useAuth0();
 
   const [show, setShow] = useState(false);
@@ -90,14 +89,6 @@ function Ham({ name, ...props }) {
           </Link>
         </Offcanvas.Body>
       </Offcanvas>
-    </>
-  );
-}
-
-function Hamburger() {
-  return (
-    <>
-      <Ham {...props} />
     </>
   );
 }

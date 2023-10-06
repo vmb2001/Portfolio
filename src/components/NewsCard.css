@@ -1,0 +1,11 @@
+.footer-grp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-active {
+  border: solid rgb(255, 102, 0);
+  padding: 0.2rem;
+  border-radius: 3%;
+}

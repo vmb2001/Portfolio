@@ -1,44 +1,82 @@
-import React from "react";
+import React, { useState, useEffect, createRef } from "react";
 import { Container, Card, Col, Row } from "react-bootstrap";
+import "./NewsCard.css";
+import phone from "../images/phone.jpg";
 
-const NewsCards = ({ articles }) => {
+const NewsCards = ({ articles, activeArticles }) => {
+  const [articleRefs, setArticleRefs] = useState([]);
+
+  //Function to truncate the card content to fit to the card
   const truncatedContent = (article, maxLen) => {
-    if (article.length <= maxLen) {
-      return article;
+    let title = article.title;
+    let description = article.description;
+    //If description is empty set it to a default value
+    if (!description) description = "Not Available";
+
+    if (title.length + description.length <= maxLen) {
+      return description;
     } else {
-      return article.slice(0, maxLen);
+      maxLen = maxLen - title.length;
+      return `${description.slice(0, maxLen)}...`;
     }
   };
 
-  console.log(articles);
-  const maxLen = 100;
+  //Function to scroll the screen to active card
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+
+  //Creating refs to all cards
+  useEffect(() => {
+    setArticleRefs((refs) =>
+      Array(articles.length)
+        .fill()
+        .map((_, index) => refs[index] || createRef())
+    );
+  }, [articles]);
+
+  //Scroll to active card ref
+  useEffect(() => {
+    if (articleRefs[activeArticles]) {
+      scrollToRef(articleRefs[activeArticles]);
+    }
+  }, [activeArticles, articleRefs]);
+
+  const maxLen = 150;
+
   return (
     <Container>
-      <Row xs={1} md={4} className="g-4">
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4">
         {articles.map((article, idx) => (
           <Col key={idx}>
-            <Card>
-              <Card.Img
-                variant="top"
-                src={article.urlToImage}
-                style={{ maxHeight: "10rem" }}
-              />
-              <Card.Body style={{ minHeight: "15rem" }}>
-                <Card.Title>{article.title}</Card.Title>
-                {/* <Card.Subtitle className="mb-2 text-muted">
-                  {article.description}
-                </Card.Subtitle> */}
-                <Card.Text>
-                  {/* {article.description} */}
-                  {truncatedContent(article.description, maxLen)}
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                <Card.Link href={article.url}>
-                  <button>VIEW ARTICLE</button>
-                </Card.Link>
-              </Card.Footer>
-            </Card>
+            <div
+              className={`title ${
+                activeArticles === idx ? "article-active" : ""
+              }`}
+            >
+              <Card ref={articleRefs[idx]}>
+                <Card.Img
+                  variant="top"
+                  src={article.urlToImage || phone}
+                  style={{ height: "10rem" }}
+                />
+                <Card.Body style={{ minHeight: "15rem" }}>
+                  <Card.Title>
+                    <div>
+                      <h5>{article.title}</h5>
+                    </div>
+                  </Card.Title>
+                  <Card.Text>{truncatedContent(article, maxLen)}</Card.Text>
+                </Card.Body>
+
+                <Card.Footer>
+                  <div className="footer-grp">
+                    <Card.Link href={article.url}>
+                      <button>VIEW ARTICLE</button>
+                    </Card.Link>
+                    <h6>{idx + 1}</h6>
+                  </div>
+                </Card.Footer>
+              </Card>
+            </div>
           </Col>
         ))}
       </Row>
