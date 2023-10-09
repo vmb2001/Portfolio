@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Hamburger from "./Hamburger";
+import * as FaIcons from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -10,7 +11,7 @@ const Navbar = () => {
         <div className="header">
           <Hamburger />
           <Link to="/">
-            <h1>Portfolio</h1>
+            <h1>Portfolio.</h1>
           </Link>
         </div>
         <div className="nav-content">

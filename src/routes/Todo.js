@@ -5,6 +5,7 @@ import * as FaIcons from "react-icons/fa";
 import axios from "axios";
 import about from "../images/about.jpg";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 const Todo = () => {
   const [todo, setTodo] = useState([]);
@@ -110,6 +111,10 @@ const Todo = () => {
 
   return (
     <div className="todo-container">
+      <Link to="/">
+        <h1 className="home-link">Portfolio.</h1>
+      </Link>
+
       {isAuthenticated && <h1 className="lead welcome">Welcome {user.name}</h1>}
       <button
         className="todo-btn  logout"

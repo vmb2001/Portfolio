@@ -160,7 +160,7 @@
 
 .todo-btn.logout {
   position: absolute;
-  top: 1rem;
+  top: 3rem;
   right: 1rem;
   color: #000000;
   width: 9rem;
@@ -176,4 +176,13 @@
   color: white;
   position: absolute;
   top: 1rem;
+  right: 1rem;
+}
+.home-link {
+  position: absolute;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #f8f5f3;
+  left: 1.5rem;
+  top: 1.5rem;
 }

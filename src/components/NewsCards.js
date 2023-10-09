@@ -64,6 +64,7 @@ const NewsCards = ({ articles, activeArticles }) => {
                       <h5>{article.title}</h5>
                     </div>
                   </Card.Title>
+                  {/* <Card.Subtitle>{Date(article.publishedAt)}</Card.Subtitle> */}
                   <Card.Text>{truncatedContent(article, maxLen)}</Card.Text>
                 </Card.Body>
 

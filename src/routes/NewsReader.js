@@ -3,10 +3,11 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "../components/NewsCards";
 import { Card, Col, Row, Container } from "react-bootstrap";
 import "./NewsReader.css";
+import wordsToNumbers from "words-to-numbers";
 
 const NewsReader = () => {
   const [newsArticles, setNewsArticles] = useState([]);
-  const [activeArticles, setActiveArticles] = useState(0);
+  const [activeArticles, setActiveArticles] = useState(-1);
 
   const cardBodyStyles = {
     backgroundColor: "#2a2a2a",
@@ -14,11 +15,11 @@ const NewsReader = () => {
   };
 
   const cardTitleStyles = {
-    marginBottom: "1rem",
+    marginBottom: "2rem",
   };
 
   const cardTextStyles = {
-    marginTop: "3rem",
+    marginTop: "9rem",
   };
 
   const properties = [
@@ -26,21 +27,21 @@ const NewsReader = () => {
       color: "#ff6a00",
       header: "SEARCH BY SOURCE",
       title: "SOURCES",
-      subtitle: "ABC News,CNN News,The Hindu..",
+      subtitle: "ABC News, CNN News, BBC News, The Hindu..",
       text: "Try Saying: Give me the news from BBC News",
     },
     {
       color: " #ff8800",
       header: "SEARCH BY CATEGORY",
       title: "CATEGORIES",
-      subtitle: "Sports,Health,General,Bussiness..",
+      subtitle: "Sports, Health, General, Entertainment..",
       text: "Try Saying: Whats the latest news on Health",
     },
     {
       color: "#ffa600",
       header: "SEARCH BY TERM",
       title: "TERMS",
-      subtitle: "Bitcoin,Technology,Science..",
+      subtitle: "Bitcoin, Technology, Science, Laptops..",
       text: "Try Saying: Whats new in science",
     },
   ];
@@ -54,9 +55,20 @@ const NewsReader = () => {
       onCommand: (commandData) => {
         if (commandData.command === "newNews") {
           setNewsArticles(commandData.articles);
-        } else if (commandData.command === "highlights");
-        {
+        } else if (commandData.command === "highlight") {
           setActiveArticles(commandData.i);
+        } else if (commandData.command === "open") {
+          let parseNum = commandData.num;
+          if (isNaN(parseNum)) {
+            parseNum = wordsToNumbers(
+              commandData.num,
+              { fuzzy: true },
+              "_blank"
+            );
+          }
+          const articleIndex = parseNum - 1;
+          console.log(commandData.savedArticles[articleIndex].url);
+          window.open(commandData.savedArticles[articleIndex].url);
         }
       },
     });
@@ -65,6 +77,7 @@ const NewsReader = () => {
   return (
     <div className="news-reader">
       <h1 className="news-head">AI NEWS READER</h1>
+      {/* Deciding what cards to display */}
       {!newsArticles.length ? (
         <div>
           <Container>
@@ -89,15 +102,17 @@ const NewsReader = () => {
                         textAlign: "center",
                       }}
                     >
-                      {variant.header}
+                      <b>{variant.header}</b>
                     </Card.Header>
                     <Card.Body style={cardBodyStyles}>
                       <Card.Title style={cardTitleStyles}>
                         {variant.title}
                       </Card.Title>
-                      <Card.Subtitle>{variant.subtitle} </Card.Subtitle>
+                      <Card.Subtitle className="lead">
+                        {variant.subtitle}{" "}
+                      </Card.Subtitle>
                       <Card.Text style={cardTextStyles}>
-                        {variant.text}
+                        <i>{variant.text}</i>
                       </Card.Text>
                     </Card.Body>
                   </Card>
