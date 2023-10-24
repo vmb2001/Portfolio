@@ -10,6 +10,7 @@ const NewsCards = ({ articles, activeArticles }) => {
   const truncatedContent = (article, maxLen) => {
     let title = article.title;
     let description = article.description;
+
     //If description is empty set it to a default value
     if (!description) description = "Not Available";
 
@@ -26,6 +27,7 @@ const NewsCards = ({ articles, activeArticles }) => {
 
   //Creating refs to all cards
   useEffect(() => {
+    console.log("Article useeffect");
     setArticleRefs((refs) =>
       Array(articles.length)
         .fill()
@@ -35,8 +37,10 @@ const NewsCards = ({ articles, activeArticles }) => {
 
   //Scroll to active card ref
   useEffect(() => {
+    console.log("Active useeffect");
     if (articleRefs[activeArticles]) {
       scrollToRef(articleRefs[activeArticles]);
+      console.log(" INSIDE Active useeffect");
     }
   }, [activeArticles, articleRefs]);
 
@@ -70,7 +74,7 @@ const NewsCards = ({ articles, activeArticles }) => {
 
                 <Card.Footer>
                   <div className="footer-grp">
-                    <Card.Link href={article.url}>
+                    <Card.Link href={article.url} target="_blank">
                       <button>VIEW ARTICLE</button>
                     </Card.Link>
                     <h6>{idx + 1}</h6>

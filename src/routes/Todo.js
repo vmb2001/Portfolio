@@ -30,7 +30,7 @@ const Todo = () => {
   };
 
   //Function to add to list
-  const addTodo = () => {
+  const addTodo = async () => {
     let new_id = uuidv4();
     const addVal = {
       id: new_id,
@@ -40,34 +40,30 @@ const Todo = () => {
     };
 
     const add = async () => {
-      const response = await axios.post(
-        "http://localhost:3001/api/todos",
-        addVal
-      );
+      await axios.post("http://localhost:3001/api/todos", addVal);
     };
-    add();
+    await add();
     setTodo([...todo, addVal]);
   };
 
   //Function to remove from list
-  const remove = (id) => {
+  const remove = async (id) => {
     const deleted_todo = todo.filter((item) => item.id !== id);
     const del = async () => {
-      const response = await axios.delete(
-        `http://localhost:3001/api/todos/${id}`
-      );
+      await axios.delete(`http://localhost:3001/api/todos/${id}`);
     };
+
+    await del();
     setTodo(deleted_todo);
-    del();
   };
 
   //Function to mark task as completed or not
-  const changeCompleted = (id) => {
+  const changeCompleted = async (id) => {
     const change = async () => {
-      const response = await axios.put(`http://localhost:3001/api/todos/${id}`);
+      await axios.put(`http://localhost:3001/api/todos/${id}`);
     };
 
-    change();
+    await change();
 
     const new_todo = todo.map((item) => {
       if (item.id == id) {
@@ -90,7 +86,7 @@ const Todo = () => {
   };
 
   //Function to set if form is getting edited or not
-  const edit = (id) => {
+  const edit = async (id) => {
     const new_todo = todo.map((item) => {
       if (item.id == id) {
         item.editing = false;
@@ -100,12 +96,11 @@ const Todo = () => {
     });
 
     const change = async () => {
-      const response = await axios.patch(
-        `http://localhost:3001/api/todos/${id}`,
-        { task: value }
-      );
+      await axios.patch(`http://localhost:3001/api/todos/${id}`, {
+        task: value,
+      });
     };
-    change();
+    await change();
     setTodo(new_todo);
   };
 
@@ -138,6 +133,7 @@ const Todo = () => {
                   type="text"
                   onChange={handleChange}
                   className="todo-input"
+                  placeholder="Enter a task"
                 ></input>
                 <button
                   type="button"

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "./Home.css";
 import profile_pic from "../images/p8.jpg";
 import home from "../images/new.jpg";
+import alanBtn from "@alan-ai/alan-sdk-web";
 
 const Home = () => {
   return (
@@ -10,9 +11,7 @@ const Home = () => {
       <Navbar />
 
       <div className="body-container">
-        <div className="f-container">
-          {/* <img src={profile_pic} className="prof" /> */}
-        </div>
+        <div className="f-container"></div>
         <div className="s-container">
           <div className="s-box">
             <h1 className="s-header ">SOFTWARE DEVELOPER</h1>
@@ -24,7 +23,7 @@ const Home = () => {
         <img src={home} className="home" />
         <div className="cont">
           <img src={profile_pic} alt="profile pic" className="prof" />
-          <h1 className="prof_name">Emily Bennet</h1>
+          <h1 className="prof_name">Jane Doe</h1>
         </div>
       </div>
     </div>

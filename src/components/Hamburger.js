@@ -84,7 +84,7 @@ function Hamburger() {
           <Link to="/voice" style={linkStyles}>
             <h5 style={itemStyles}>
               <Fa6Icons.FaPencil style={iconStyles} />
-              AI News Reader
+              News Reader
             </h5>
           </Link>
         </Offcanvas.Body>

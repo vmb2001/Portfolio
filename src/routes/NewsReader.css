@@ -7,9 +7,37 @@
 }
 
 .news-head {
+  margin-top: 4rem;
   padding: 1rem;
   padding-bottom: 3rem;
   text-align: center;
   font-size: 3rem;
   color: rgb(255, 81, 0);
+}
+
+.home-link {
+  position: absolute;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #f8f5f3;
+  left: 1.5rem;
+  top: 1.3rem;
+  font-family: quicksand;
+}
+
+.go-back {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.go-back:hover {
+  cursor: pointer;
+  color: rgb(121, 194, 243);
+}
+
+.result {
+  margin: 0.5rem;
 }

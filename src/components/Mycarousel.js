@@ -1,6 +1,6 @@
 import React from "react";
 import view from "../images/view.jpg";
-import road from "../images/road.jpg";
+import sports from "../images/sports.jpg";
 import { Carousel } from "react-bootstrap";
 import "./Mycarousel.css";
 
@@ -8,7 +8,6 @@ const Mycarousel = () => {
   return (
     <div className="car-body">
       <div className="carousel-container">
-        <div className="car-heading">ABOUT ME</div>
         <Carousel fade>
           <Carousel.Item>
             <img className="carousel-img" src={view} />
@@ -19,7 +18,7 @@ const Mycarousel = () => {
           </Carousel.Item>
 
           <Carousel.Item>
-            <img className="carousel-img" src={road} />
+            <img className="carousel-img" src={sports} />
             <Carousel.Caption>
               <h3>Sports</h3>
               <p>Has a passion for sports</p>

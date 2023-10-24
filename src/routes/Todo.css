@@ -13,14 +13,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .transparent-card {
   background-color: transparent;
   border: none;
   box-shadow: none;
+  position: relative;
 }
+
 .transparent-card > h5 {
   background-color: #ed5f06;
   color: #fff;
@@ -159,6 +161,7 @@
 }
 
 .todo-btn.logout {
+  margin: 1rem;
   position: absolute;
   top: 3rem;
   right: 1rem;
@@ -173,6 +176,7 @@
 }
 
 .welcome {
+  padding: 0.5rem;
   color: white;
   position: absolute;
   top: 1rem;
@@ -181,8 +185,8 @@
 .home-link {
   position: absolute;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #f8f5f3;
   left: 1.5rem;
-  top: 1.5rem;
+  top: 1.3rem;
 }

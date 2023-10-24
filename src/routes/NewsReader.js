@@ -1,9 +1,11 @@
-import { React, useEffect, useState, createRef } from "react";
+import { React, useEffect, useState } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "../components/NewsCards";
 import { Card, Col, Row, Container } from "react-bootstrap";
 import "./NewsReader.css";
 import wordsToNumbers from "words-to-numbers";
+import { Link } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
 
 const NewsReader = () => {
   const [newsArticles, setNewsArticles] = useState([]);
@@ -60,15 +62,13 @@ const NewsReader = () => {
         } else if (commandData.command === "open") {
           let parseNum = commandData.num;
           if (isNaN(parseNum)) {
-            parseNum = wordsToNumbers(
-              commandData.num,
-              { fuzzy: true },
-              "_blank"
-            );
+            parseNum = wordsToNumbers(commandData.num, { fuzzy: true });
           }
           const articleIndex = parseNum - 1;
-          console.log(commandData.savedArticles[articleIndex].url);
-          window.open(commandData.savedArticles[articleIndex].url);
+
+          console.log(commandData.savedArticles[articleIndex].url, "_blank");
+          const articleUrl = commandData.savedArticles[articleIndex].url;
+          window.open(articleUrl, "_blank");
         }
       },
     });
@@ -76,10 +76,14 @@ const NewsReader = () => {
 
   return (
     <div className="news-reader">
-      <h1 className="news-head">AI NEWS READER</h1>
       {/* Deciding what cards to display */}
       {!newsArticles.length ? (
+        //If no articles fetched yet, show home page cards
         <div>
+          <h1 className="news-head">NEWS READER</h1>
+          <Link to="/">
+            <h1 className="home-link">Portfolio.</h1>
+          </Link>
           <Container>
             <Row>
               {properties.map((variant, index) => (
@@ -122,7 +126,14 @@ const NewsReader = () => {
           </Container>
         </div>
       ) : (
-        <NewsCards articles={newsArticles} activeArticles={activeArticles} />
+        // If articles fetched display them as cards
+        <div>
+          <h1 className="news-head result">NEWS READER</h1>
+          <a className="go-back">
+            <FaIcons.FaArrowCircleLeft onClick={() => setNewsArticles("")} />
+          </a>
+          <NewsCards articles={newsArticles} activeArticles={activeArticles} />
+        </div>
       )}
     </div>
   );
